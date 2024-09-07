@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfpuwurb7ruc3"]
+
+[ext_resource type="Script" path="res://scripts/start.gd" id="1_80kk1"]
+[ext_resource type="Texture2D" uid="uid://dmrmn8d3t20fa" path="res://sprites/mrdillon.png" id="2_5ge5s"]
+
+[node name="start" type="Node2D"]
+script = ExtResource("1_80kk1")
+
+[node name="mrdillon" type="Sprite2D" parent="."]
+position = Vector2(960.126, 539.964)
+scale = Vector2(3.50319, 2.25957)
+texture = ExtResource("2_5ge5s")
+
+[node name="play" type="Button" parent="."]
+offset_left = 93.0
+offset_top = 474.0
+offset_right = 466.0
+offset_bottom = 555.0
+pivot_offset = Vector2(-643, -626)
+theme_override_font_sizes/font_size = 53
+text = "play"
+
+[node name="tut" type="Button" parent="."]
+offset_left = 93.0
+offset_top = 571.0
+offset_right = 466.0
+offset_bottom = 652.0
+pivot_offset = Vector2(-643, -626)
+theme_override_font_sizes/font_size = 53
+text = "how play"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 92.0
+offset_top = 670.0
+offset_right = 466.0
+offset_bottom = 751.0
+theme_override_font_sizes/font_size = 53
+text = "quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 115.0
+offset_top = 321.0
+offset_right = 422.0
+offset_bottom = 461.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/normal_font_size = 100
+text = " dillou"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="tut" to="." method="_on_tut_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

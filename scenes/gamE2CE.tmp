@@ -1,0 +1,145 @@
+[gd_scene load_steps=14 format=3 uid="uid://bsdiocf1t2mfs"]
+
+[ext_resource type="PackedScene" uid="uid://csj2ow3pige2e" path="res://scenes/dillon.tscn" id="1_01ohm"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_i0sye"]
+[ext_resource type="Texture2D" uid="uid://casidc57e8m80" path="res://sprites/arrow.png" id="3_57axd"]
+[ext_resource type="PackedScene" uid="uid://3aiv6o2jag8" path="res://scenes/spawner.tscn" id="4_h4oiw"]
+[ext_resource type="PackedScene" uid="uid://cy67jtnpmhr2r" path="res://scenes/happiness.tscn" id="5_mm2y2"]
+[ext_resource type="PackedScene" uid="uid://uuxfh1tfhat6" path="res://scenes/hunger.tscn" id="6_um888"]
+[ext_resource type="PackedScene" uid="uid://dnl5jf2ht1rca" path="res://scenes/health.tscn" id="7_sg3yv"]
+[ext_resource type="PackedScene" uid="uid://btq7f0fqsqv7s" path="res://scenes/counter.tscn" id="8_k5fcr"]
+[ext_resource type="PackedScene" uid="uid://d4ibi2kxtkdu" path="res://scenes/buy.tscn" id="9_5tnqs"]
+[ext_resource type="PackedScene" uid="uid://bv5xsw6705b6p" path="res://scenes/sound.tscn" id="10_ogxvr"]
+[ext_resource type="Texture2D" uid="uid://dl3ddfnnvk26r" path="res://sprites/gameover.png" id="11_4qohi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1f5x"]
+size = Vector2(79, 88)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hlu6"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_i0sye")
+
+[node name="dillon" parent="." instance=ExtResource("1_01ohm")]
+unique_name_in_owner = true
+position = Vector2(960, 445)
+scale = Vector2(0.66, 0.66)
+
+[node name="crumbs" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="arrowleft" type="Area2D" parent="."]
+position = Vector2(820, 977)
+
+[node name="sprite" type="Sprite2D" parent="arrowleft"]
+texture = ExtResource("3_57axd")
+flip_h = true
+
+[node name="hitbox" type="CollisionShape2D" parent="arrowleft"]
+position = Vector2(-3.5, -2)
+shape = SubResource("RectangleShape2D_s1f5x")
+
+[node name="arrowright" type="Area2D" parent="."]
+position = Vector2(1100, 977)
+
+[node name="sprite" type="Sprite2D" parent="arrowright"]
+texture = ExtResource("3_57axd")
+
+[node name="hitbox" type="CollisionShape2D" parent="arrowright"]
+position = Vector2(3, -1)
+shape = SubResource("RectangleShape2D_s1f5x")
+
+[node name="foods" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="spawner" parent="." instance=ExtResource("4_h4oiw")]
+position = Vector2(960, 957)
+
+[node name="happiness" parent="." instance=ExtResource("5_mm2y2")]
+offset_left = 24.0
+offset_top = 23.0
+offset_right = 152.0
+offset_bottom = 151.0
+scale = Vector2(0.75, 0.75)
+metadata/_edit_use_anchors_ = true
+
+[node name="hunger" parent="." instance=ExtResource("6_um888")]
+offset_left = 118.0
+offset_top = 23.0
+offset_right = 246.0
+offset_bottom = 151.0
+scale = Vector2(0.75, 0.75)
+metadata/_edit_use_anchors_ = true
+
+[node name="health" parent="." instance=ExtResource("7_sg3yv")]
+offset_left = 211.0
+offset_top = 23.0
+offset_right = 339.0
+offset_bottom = 151.0
+scale = Vector2(0.75, 0.75)
+metadata/_edit_use_anchors_ = true
+
+[node name="happinesstimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
+[node name="hungertimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="counter" parent="." instance=ExtResource("8_k5fcr")]
+position = Vector2(364, 70)
+scale = Vector2(1.5, 1.5)
+
+[node name="buy" parent="." instance=ExtResource("9_5tnqs")]
+position = Vector2(1740, 216)
+scale = Vector2(1.25, 1.25)
+
+[node name="crumb" parent="." instance=ExtResource("10_ogxvr")]
+
+[node name="food" parent="." instance=ExtResource("10_ogxvr")]
+volume_db = 20.0
+
+[node name="cash" parent="." instance=ExtResource("10_ogxvr")]
+volume_db = -20.0
+
+[node name="gameover" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="bg" type="Sprite2D" parent="gameover"]
+position = Vector2(960, 540)
+texture = ExtResource("11_4qohi")
+
+[node name="vbox" type="VBoxContainer" parent="gameover"]
+offset_left = 256.0
+offset_right = 1664.0
+offset_bottom = 1080.0
+alignment = 1
+
+[node name="text" type="RichTextLabel" parent="gameover/vbox"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_7hlu6")
+bbcode_enabled = true
+text = "[center]mr dillon died from a dirty beard"
+fit_content = true
+
+[node name="play again" type="Button" parent="gameover"]
+offset_left = 710.0
+offset_top = 750.0
+offset_right = 1210.0
+offset_bottom = 831.0
+theme_override_font_sizes/font_size = 53
+text = "play again"
+
+[connection signal="input_event" from="arrowleft" to="." method="_on_arrowleft_input_event"]
+[connection signal="input_event" from="arrowright" to="." method="_on_arrowright_input_event"]
+[connection signal="timeout" from="happinesstimer" to="." method="_on_happinesstimer_timeout"]
+[connection signal="timeout" from="hungertimer" to="." method="_on_hungertimer_timeout"]
+[connection signal="pressed" from="gameover/play again" to="." method="_on_play_again_pressed"]

@@ -1,0 +1,121 @@
+[gd_scene load_steps=17 format=3 uid="uid://csj2ow3pige2e"]
+
+[ext_resource type="Texture2D" uid="uid://dahal3yq4rj4l" path="res://sprites/head.png" id="1_8lec5"]
+[ext_resource type="Script" path="res://scripts/dillon.gd" id="1_koyge"]
+[ext_resource type="Texture2D" uid="uid://badsx08uoy67b" path="res://sprites/beard.png" id="2_mbiav"]
+[ext_resource type="Texture2D" uid="uid://c2onhoc6rrfrq" path="res://sprites/mouthc.png" id="3_jfspx"]
+[ext_resource type="Texture2D" uid="uid://dw6bgm636an0i" path="res://sprites/whitehead.png" id="3_xxy3f"]
+[ext_resource type="Texture2D" uid="uid://cq2kir81rx0ym" path="res://sprites/moutho.png" id="4_8pdtf"]
+[ext_resource type="Texture2D" uid="uid://dmxw5qleih0dt" path="res://sprites/deadeyes.png" id="5_hw7mc"]
+[ext_resource type="Texture2D" uid="uid://lbgc1rvm71xm" path="res://sprites/eyes.png" id="5_xp1xc"]
+[ext_resource type="Script" path="res://scripts/pupil.gd" id="6_2shh1"]
+[ext_resource type="Texture2D" uid="uid://0sg2pjymgkyj" path="res://sprites/pupil.png" id="6_tug7p"]
+[ext_resource type="Texture2D" uid="uid://cwkq3pfcvf2hi" path="res://sprites/mouthn.png" id="8_rr0aa"]
+[ext_resource type="Texture2D" uid="uid://qf3s2l8dky11" path="res://sprites/mouths.png" id="9_twqih"]
+
+[sub_resource type="Curve2D" id="Curve2D_kmns1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -432, -8, 0, 0, 0, 0, -426, 160, 0, 0, 0, 0, -404, 271, 0, 0, 0, 0, -370, 342, 0, 0, 0, 0, -325, 393, 0, 0, 0, 0, -278, 428, 0, 0, 0, 0, -199, 450, 0, 0, 0, 0, -98, 465, 0, 0, 0, 0, -14, 470, 0, 0, 0, 0, 69, 468, 0, 0, 0, 0, 153, 465, 0, 0, 0, 0, 243, 442, 0, 0, 0, 0, 297, 408, 0, 0, 0, 0, 359, 359, 0, 0, 0, 0, 408, 296, 0, 0, 0, 0, 439, 239, 0, 0, 0, 0, 459, 153, 0, 0, 0, 0, 463, 97, 0, 0, 0, 0, 465, 46, 0, 0, 0, 0, 450, -8, 0, 0, 0, 0, 415, 2, 0, 0, 0, 0, 417, 60, 0, 0, 0, 0, 417, 121, 0, 0, 0, 0, 406, 172, 0, 0, 0, 0, 387, 227, 0, 0, 0, 0, 350, 279, 0, 0, 0, 0, 291, 337, 0, 0, 0, 0, 221, 385, 0, 0, 0, 0, 111, 414, 0, 0, 0, 0, 23, 416, 0, 0, 0, 0, -65, 411, 0, 0, 0, 0, -143, 405, 0, 0, 0, 0, -219, 383, 0, 0, 0, 0, -277, 352, 0, 0, 0, 0, -305, 296, 0, 0, 0, 0, -335, 216, 0, 0, 0, 0, -223, 116, 0, 0, 0, 0, -172, 58, 0, 0, 0, 0, -107, 28, 0, 0, 0, 0, -24, 32, 0, 0, 0, 0, 63, 26, 0, 0, 0, 0, 131, 57, 0, 0, 0, 0, 188, 89, 0, 0, 0, 0, 231, 135, 0, 0, 0, 0, 301, 155, 0, 0, 0, 0, 299, 217, 0, 0, 0, 0, 222, 203, 0, 0, 0, 0, 190, 162, 0, 0, 0, 0, 138, 110, 0, 0, 0, 0, 57, 87, 0, 0, 0, 0, -15, 100, 0, 0, 0, 0, -85, 97, 0, 0, 0, 0, -172, 140, 0, 0, 0, 0, -206, 191, 0, 0, 0, 0, -247, 235, 0, 0, 0, 0, -259, 285)
+}
+point_count = 56
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7tov4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jfspx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rr0aa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_twqih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8pdtf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hh203"]
+radius = 646.063
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07mf8"]
+radius = 201.718
+
+[node name="dillon" type="Area2D"]
+script = ExtResource("1_koyge")
+
+[node name="path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_kmns1")
+
+[node name="follow" type="PathFollow2D" parent="path"]
+position = Vector2(461.598, 116.635)
+rotation = -1.49949
+progress = 1427.17
+
+[node name="whitehead" type="Sprite2D" parent="."]
+texture = ExtResource("3_xxy3f")
+
+[node name="head" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.396078)
+texture = ExtResource("1_8lec5")
+
+[node name="beard" type="Sprite2D" parent="."]
+texture = ExtResource("2_mbiav")
+
+[node name="eyes" type="Node2D" parent="."]
+
+[node name="whites" type="Sprite2D" parent="eyes"]
+texture = ExtResource("5_xp1xc")
+
+[node name="left eye" type="Node2D" parent="eyes"]
+position = Vector2(-221, -136)
+script = ExtResource("6_2shh1")
+
+[node name="left pupil" type="Sprite2D" parent="eyes/left eye"]
+texture = ExtResource("6_tug7p")
+
+[node name="right eye" type="Node2D" parent="eyes"]
+position = Vector2(216, -140)
+script = ExtResource("6_2shh1")
+
+[node name="right pupil" type="Sprite2D" parent="eyes/right eye"]
+texture = ExtResource("6_tug7p")
+
+[node name="deadeyes" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_hw7mc")
+
+[node name="hitbox" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(114, -487.9, 114, -486.7, 165, -478.7, 165, -477.5, 193, -470.6, 193, -469.4, 230, -456.4, 230, -455.2, 268, -434.2, 268, -433, 294, -414, 294, -412.8, 328, -377.8, 328, -375.7, 342, -358.7, 342, -356.6, 366, -319.6, 366, -316.5, 398, -255.5, 398, -252.4, 428, -186.4, 428, -183.3, 491, 19.7, 491, 25.6, 498, 61.8, 498, 73, 500, 122, 498.8, 122, 492.8, 191, 491.5, 191, 478.6, 245, 477.4, 245, 465.4, 280, 464.3, 280, 446.3, 320, 445.1, 320, 414.1, 370, 412.9, 370, 364.9, 422, 362.9, 422, 345.8, 438, 343.6, 438, 318.6, 456, 316.5, 456, 279.5, 478, 275.5, 478, 249.5, 491, 244.4, 491, 190.3, 510, 185.3, 510, 179.3, 512, -78.4, 512, -160, 501.8, -160, 500.7, -235, 486.7, -235, 485.4, -287, 464.3, -287, 463.1, -325, 440.1, -325, 439, -368, 404, -368, 402.8, -416, 354.8, -416, 352.6, -445, 312.6, -445, 310.4, -468, 261.4, -468, 257, -482, 208.3, -482, 200, -486.1, 142, -484.8, 142, -475.8, 37, -474.8, 37, -465.8, -35, -464.5, -35, -438.5, -128, -437.4, -128, -424.4, -167, -423.4, -167, -391.3, -246, -390.2, -246, -365.2, -296, -364, -296, -325, -349, -323.8, -349, -278.8, -393, -276.7, -393, -237.7, -423, -234.7, -423, -206.6, -442, -204.5, -442, -169.5, -460, -164.3, -460, -141.4, -470, -136.3, -470, -85.3, -486, -81.3, -486, -43.2, -492, -29, -492, -11, -492.9, -11, -494.1)
+
+[node name="mouth" type="Area2D" parent="."]
+
+[node name="sprite" type="AnimatedSprite2D" parent="mouth"]
+unique_name_in_owner = true
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_7tov4")
+frame = 2
+
+[node name="mouthhitbox" type="CollisionShape2D" parent="mouth"]
+visible = false
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_hh203")
+
+[node name="eating" type="Area2D" parent="."]
+
+[node name="eathitbox" type="CollisionShape2D" parent="eating"]
+visible = false
+position = Vector2(18, 248)
+shape = SubResource("CircleShape2D_07mf8")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="area_entered" from="mouth" to="." method="_on_mouth_area_entered"]
+[connection signal="area_exited" from="mouth" to="." method="_on_mouth_area_exited"]
+[connection signal="mouse_entered" from="eating" to="." method="_on_eating_mouse_entered"]
+[connection signal="mouse_exited" from="eating" to="." method="_on_eating_mouse_exited"]

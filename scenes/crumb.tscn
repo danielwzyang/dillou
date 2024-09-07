@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://8fvbvmf3tu40"]
+
+[ext_resource type="Script" path="res://scripts/crumb.gd" id="1_kssa5"]
+[ext_resource type="Texture2D" uid="uid://2ng51i3ws255" path="res://sprites/crumb.png" id="1_ln27v"]
+
+[node name="crumb" type="Area2D"]
+rotation = -1.42244
+script = ExtResource("1_kssa5")
+
+[node name="sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ln27v")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://7wagki0yeg0p"]
+
+[ext_resource type="Script" path="res://scripts/tut.gd" id="1_bj7cy"]
+
+[node name="tut" type="Node2D"]
+script = ExtResource("1_bj7cy")
+
+[node name="text" type="RichTextLabel" parent="."]
+offset_left = 296.0
+offset_top = 50.0
+offset_right = 1624.0
+offset_bottom = 1046.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]so basically you want to keep mr dillon alive by feeding him food
+
+if any of the bars on the top left reach 0 then mr dillon dies
+
+happiness and hunger are increased by feeding him
+
+when you feed him food he gets crumbs in his beard which causes his health to go down so you need to click on the crumbs to get rid of them or he dies
+
+buy more food in the top right by getting coins from clicking on crumbs"
+
+[node name="play" type="Button" parent="."]
+offset_left = 1410.0
+offset_top = 958.0
+offset_right = 1911.0
+offset_bottom = 1067.0
+pivot_offset = Vector2(-643, -626)
+theme_override_font_sizes/font_size = 53
+text = "i know how play"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]

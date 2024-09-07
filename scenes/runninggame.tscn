@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4v1njt0lly"]
+
+[ext_resource type="PackedScene" uid="uid://cprchh6ybqmvb" path="res://scenes/runningdillon.tscn" id="1_gxha0"]
+[ext_resource type="PackedScene" uid="uid://cvetd2ljheyk5" path="res://scenes/runbutton.tscn" id="2_fed4j"]
+
+[node name="runninggame" type="Node2D"]
+
+[node name="runningdillon" parent="." instance=ExtResource("1_gxha0")]
+position = Vector2(150, 540)
+scale = Vector2(0.1, 0.1)
+
+[node name="runbutton" parent="." instance=ExtResource("2_fed4j")]
+position = Vector2(125, 92)

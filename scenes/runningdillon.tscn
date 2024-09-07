@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cprchh6ybqmvb"]
+
+[ext_resource type="Texture2D" uid="uid://dahal3yq4rj4l" path="res://sprites/head.png" id="1_bv0w6"]
+[ext_resource type="Script" path="res://scripts/runningdillon.gd" id="1_i384n"]
+[ext_resource type="Texture2D" uid="uid://badsx08uoy67b" path="res://sprites/beard.png" id="2_1eonl"]
+[ext_resource type="Texture2D" uid="uid://lbgc1rvm71xm" path="res://sprites/eyes.png" id="3_i1t3v"]
+[ext_resource type="Texture2D" uid="uid://0sg2pjymgkyj" path="res://sprites/pupil.png" id="5_02xo0"]
+[ext_resource type="Texture2D" uid="uid://c2onhoc6rrfrq" path="res://sprites/mouthc.png" id="6_sr86f"]
+
+[node name="runningdillon" type="Node2D"]
+script = ExtResource("1_i384n")
+
+[node name="head" type="Sprite2D" parent="."]
+texture = ExtResource("1_bv0w6")
+
+[node name="beard" type="Sprite2D" parent="."]
+texture = ExtResource("2_1eonl")
+
+[node name="eyes" type="Sprite2D" parent="."]
+texture = ExtResource("3_i1t3v")
+
+[node name="left pupil" type="Sprite2D" parent="."]
+position = Vector2(-191, -136)
+texture = ExtResource("5_02xo0")
+
+[node name="right pupil" type="Sprite2D" parent="."]
+position = Vector2(246, -140)
+texture = ExtResource("5_02xo0")
+
+[node name="mouth" type="Sprite2D" parent="."]
+texture = ExtResource("6_sr86f")
